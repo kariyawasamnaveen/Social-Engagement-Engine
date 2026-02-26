@@ -1,0 +1,624 @@
+/* 
+   APP DASHBOARD OVERRIDES - MINIMALIST PREMIUM DESIGN
+   Concept: Elegant, Structured, Data-Centric
+*/
+
+:root {
+    --bg-obsidian: #080809;
+    --bg-card: #121214;
+    --border-dim: #1C1C1E;
+    --accent-blue: #3B82F6;
+    --text-pure: #FFFFFF;
+    --text-dim: #A1A1AA;
+    --text-muted: #52525B;
+}
+
+/* Global Foundations */
+body {
+    background-color: var(--bg-obsidian) !important;
+    color: var(--text-pure) !important;
+    font-family: 'Inter', -apple-system, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Cleansing the default SmartPanel UI */
+.app-dashboard-active .header.top,
+.app-dashboard-active .header.collapse,
+.app-dashboard-active .footer.footer_top,
+.app-dashboard-active footer.footer_bottom,
+.app-dashboard-active .page-overplay {
+    display: none !important;
+}
+
+.app-dashboard-active .page-main {
+    padding-top: 20px !important;
+    padding-bottom: 100px !important;
+}
+
+/* Container Precision */
+.app-dashboard-active .container {
+    max-width: 600px !important;
+    /* Mobile-first focused width */
+    margin: 0 auto;
+}
+
+/* Card Refinement - The "Designer" Look */
+.app-dashboard-active .card {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-dim) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+    margin-bottom: 16px !important;
+}
+
+.app-dashboard-active .card-header {
+    padding: 18px 20px !important;
+    border-bottom: 1px solid var(--border-dim) !important;
+}
+
+.app-dashboard-active .card-title {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--text-pure) !important;
+    letter-spacing: -0.2px;
+}
+
+/* Statistics Header Items */
+.app-dashboard-active .statistics .item .card {
+    padding: 16px !important;
+}
+
+.app-dashboard-active .stamp {
+    background: rgba(59, 130, 246, 0.1) !important;
+    color: var(--accent-blue) !important;
+    border-radius: 10px !important;
+    width: 38px !important;
+    height: 38px !important;
+    line-height: 38px !important;
+}
+
+.app-dashboard-active .statistics .number {
+    font-size: 18px !important;
+    font-weight: 700 !important;
+}
+
+.app-dashboard-active .statistics .text-muted {
+    font-size: 12px !important;
+    color: var(--text-dim) !important;
+}
+
+/* Modern Header (Greeting & Balance) */
+.app-user-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 10px 4px;
+}
+
+.app-user-header .greeting h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.app-user-header .greeting p {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin: 0;
+}
+
+.app-user-header .balance-badge {
+    background: #FFFFFF;
+    color: #000000;
+    padding: 8px 14px;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.app-user-header .balance-badge:active {
+    transform: scale(0.95);
+}
+
+/* Bottom Navigation - Minimalist */
+.app-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-dim);
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 10px 32px 10px;
+    z-index: 9999;
+}
+
+.app-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-muted);
+    text-decoration: none !important;
+    transition: all 0.2s ease;
+}
+
+.app-nav-item svg {
+    width: 22px;
+    height: 22px;
+    margin-bottom: 4px;
+    fill: currentColor;
+}
+
+.app-nav-item span {
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.app-nav-item.active {
+    color: var(--accent-blue);
+}
+
+/* Charts Customization */
+#orders_chart_spline,
+#orders_chart_pie {
+    filter: invert(0) !important;
+    /* Ensure visibility on dark */
+}
+
+/* Data Display & Tables */
+.app-dashboard-active .table {
+    margin-bottom: 0 !important;
+    background: transparent !important;
+}
+
+.app-dashboard-active .table th {
+    background: transparent !important;
+    border-bottom: 1px solid var(--border-dim) !important;
+    color: var(--text-muted) !important;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    padding: 12px 20px !important;
+}
+
+.app-dashboard-active .table td {
+    border-bottom: 1px solid var(--border-dim) !important;
+    padding: 16px 20px !important;
+    font-size: 14px;
+    color: var(--text-dim) !important;
+}
+
+.app-dashboard-active .table tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* Charts Containers */
+.app-dashboard-active .charts .card {
+    padding: 10px !important;
+}
+
+.app-dashboard-active .charts .card-header {
+    border-bottom: none !important;
+}
+
+/* Badge Refinement */
+.app-dashboard-active .badge {
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    padding: 5px 10px !important;
+    font-size: 11px !important;
+}
+
+/* Form & Input Refinement */
+.app-dashboard-active .form-group label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.app-dashboard-active .form-control,
+.app-dashboard-active .custom-select,
+.app-dashboard-active .selectize-input {
+    background-color: #1A1A1C !important;
+    border: 1px solid var(--border-dim) !important;
+    color: var(--text-pure) !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    height: auto !important;
+    font-size: 14px !important;
+    transition: all 0.2s ease !important;
+    box-shadow: none !important;
+}
+
+.app-dashboard-active .form-control:focus,
+.app-dashboard-active .custom-select:focus,
+.app-dashboard-active .selectize-input.focus {
+    border-color: var(--accent-blue) !important;
+    background-color: #1E1E20 !important;
+}
+
+.app-dashboard-active .form-control[disabled],
+.app-dashboard-active .form-control[readonly] {
+    background-color: #121214 !important;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Custom Switch - Luxury feel */
+.app-dashboard-active .custom-switch-indicator {
+    background: #27272A !important;
+    border: 1px solid var(--border-dim) !important;
+}
+
+.app-dashboard-active .custom-switch-input:checked~.custom-switch-indicator {
+    background: var(--accent-blue) !important;
+    border-color: var(--accent-blue) !important;
+}
+
+/* Total Charge Display */
+.app-dashboard-active .total_charge {
+    background: rgba(59, 130, 246, 0.1) !important;
+    border: 1px solid rgba(59, 130, 246, 0.2) !important;
+    color: var(--accent-blue) !important;
+    font-weight: 700 !important;
+    border-radius: 12px !important;
+    padding: 15px !important;
+    width: 100% !important;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px !important;
+}
+
+.app-dashboard-active .total_charge .charge_number {
+    color: var(--text-pure) !important;
+    margin-left: 5px;
+}
+
+/* Place Order Button - Premium */
+.app-dashboard-active .btn-primary.btn-block {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    border: none !important;
+    border-radius: 14px !important;
+    font-weight: 700 !important;
+    padding: 16px !important;
+    font-size: 15px !important;
+    margin-top: 20px !important;
+    box-shadow: 0 10px 20px -5px rgba(255, 255, 255, 0.1) !important;
+}
+
+.app-dashboard-active .btn-primary.btn-block:active {
+    transform: scale(0.98);
+}
+
+/* Dark Mode Utilities */
+.app-dashboard-active .bg-dark-dim {
+    background-color: #1A1A1C !important;
+}
+
+.app-dashboard-active .text-dim {
+    color: var(--text-dim) !important;
+}
+
+/* Nav Pills - Professional Style */
+.app-dashboard-active .nav-pills .nav-link {
+    color: var(--text-dim);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.app-dashboard-active .nav-pills .nav-link.active {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+/* Orders Activity Log */
+.app-dashboard-active .order-activity-item {
+    background: #131315 !important;
+    border: 1px solid var(--border-dim) !important;
+    border-radius: 16px !important;
+    padding: 16px !important;
+    margin-bottom: 12px !important;
+    transition: transform 0.2s ease, border-color 0.2s ease !important;
+}
+
+.app-dashboard-active .order-activity-item:active {
+    transform: scale(0.98);
+    border-color: var(--accent-blue) !important;
+}
+
+.app-dashboard-active .order-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.app-dashboard-active .order-id-pill {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent-blue);
+    background: rgba(59, 130, 246, 0.1);
+    padding: 2px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+}
+
+.app-dashboard-active .order-date {
+    font-size: 12px;
+    color: var(--text-dim);
+}
+
+.app-dashboard-active .order-service-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-pure);
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.app-dashboard-active .order-details-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.app-dashboard-active .order-pill {
+    font-size: 11px;
+    background: #1A1A1C;
+    color: var(--text-dim);
+    padding: 4px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-dim);
+}
+
+/* Status Badges - Professional & High-Contrast */
+.app-dashboard-active .badge {
+    padding: 6px 12px !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+}
+
+.app-dashboard-active .badge-success,
+.app-dashboard-active .badge-completed {
+    background: rgba(34, 197, 94, 0.1) !important;
+    color: #22C55E !important;
+}
+
+.app-dashboard-active .badge-pending,
+.app-dashboard-active .badge-processing {
+    background: rgba(245, 158, 11, 0.1) !important;
+    color: #F59E0B !important;
+}
+
+.app-dashboard-active .badge-danger,
+.app-dashboard-active .badge-error,
+.app-dashboard-active .badge-fail {
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: #EF4444 !important;
+}
+
+.app-dashboard-active .badge-info,
+.app-dashboard-active .badge-inprogress {
+    background: rgba(59, 130, 246, 0.1) !important;
+    color: #3B82F6 !important;
+}
+
+/* Pagination - Professional App Design */
+.app-dashboard-active .pagination {
+    margin-top: 30px !important;
+    justify-content: center !important;
+}
+
+.app-dashboard-active .page-link {
+    background: #131315 !important;
+    border: 1px solid var(--border-dim) !important;
+    color: var(--text-dim) !important;
+    border-radius: 10px !important;
+    margin: 0 4px !important;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.app-dashboard-active .page-item.active .page-link {
+    background: var(--accent-blue) !important;
+    border-color: var(--accent-blue) !important;
+    color: var(--text-pure) !important;
+}
+
+/* Wallet & Recharge Center */
+.app-dashboard-active .recharge-balance-card {
+    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%) !important;
+    border: none !important;
+    border-radius: 20px !important;
+    padding: 30px !important;
+    text-align: center;
+    margin-bottom: 30px !important;
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3) !important;
+}
+
+.app-dashboard-active .recharge-balance-card h4 {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 14px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 10px !important;
+}
+
+.app-dashboard-active .recharge-balance-card .balance-amount {
+    color: #FFFFFF !important;
+    font-size: 36px !important;
+    font-weight: 800 !important;
+}
+
+/* Payment Method Cards */
+.app-dashboard-active .payment-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.app-dashboard-active .payment-method-item {
+    background: #131315 !important;
+    border: 1px solid var(--border-dim) !important;
+    border-radius: 16px !important;
+    padding: 20px 15px !important;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease !important;
+}
+
+.app-dashboard-active .payment-method-item:active,
+.app-dashboard-active .payment-method-item.active {
+    border-color: var(--accent-blue) !important;
+    background: rgba(59, 130, 246, 0.05) !important;
+    transform: translateY(-2px);
+}
+
+.app-dashboard-active .payment-method-item img {
+    height: 30px !important;
+    margin-bottom: 10px !important;
+    filter: brightness(1.2);
+}
+
+.app-dashboard-active .payment-method-item span {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-pure);
+}
+
+/* Form refinement for add-funds */
+.app-dashboard-active .add-funds-form-content {
+    background: #131315 !important;
+    padding: 25px !important;
+    border-radius: 20px !important;
+    border: 1px solid var(--border-dim) !important;
+}
+
+.app-dashboard-active .add-funds-form-content ul {
+    background: #1A1A1C !important;
+    padding: 15px 15px 15px 35px !important;
+    border-radius: 12px !important;
+    font-size: 13px !important;
+    color: var(--text-dim) !important;
+}
+
+.app-dashboard-active .add-funds-form-content .btn-primary {
+    width: 100% !important;
+    margin-top: 15px !important;
+}
+
+/* Support & Messaging */
+.app-dashboard-active .ticket-lists .item {
+    background: #131315 !important;
+    border: 1px solid var(--border-dim) !important;
+    border-radius: 16px !important;
+    padding: 16px !important;
+    margin-bottom: 12px !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.2s ease !important;
+}
+
+.app-dashboard-active .ticket-lists .item:active {
+    background: rgba(59, 130, 246, 0.05) !important;
+}
+
+.app-dashboard-active .ticket-lists .subject {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    color: var(--text-pure) !important;
+    margin-bottom: 4px;
+}
+
+.app-dashboard-active .ticket-lists .time {
+    font-size: 12px !important;
+    color: var(--text-dim) !important;
+}
+
+/* Chat Bubbles */
+.app-dashboard-active .messages ul {
+    list-style: none !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.app-dashboard-active .messages li {
+    max-width: 85% !important;
+    padding: 12px 16px !important;
+    border-radius: 16px !important;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* User (Client) Messages - Right Aligned */
+.app-dashboard-active .messages li.sent {
+    align-self: flex-end;
+    background: var(--accent-blue) !important;
+    color: #FFFFFF !important;
+    border-bottom-right-radius: 4px !important;
+}
+
+/* Support (Admin) Messages - Left Aligned */
+.app-dashboard-active .messages li.replies {
+    align-self: flex-start;
+    background: #1A1A1C !important;
+    color: var(--text-pure) !important;
+    border: 1px solid var(--border-dim) !important;
+    border-bottom-left-radius: 4px !important;
+}
+
+.app-dashboard-active .messages .text-muted.small {
+    display: block;
+    font-size: 11px;
+    margin-top: 5px;
+    opacity: 0.7;
+}
+
+.app-dashboard-active .messages li.sent .text-muted {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Floating Add Button for Mobile Support */
+.app-dashboard-active .btn-add-ticket-floating {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    z-index: 1000;
+}
+
+/* Scroll Smoothing */
+* {
+    -webkit-overflow-scrolling: touch;
+}
