@@ -4,20 +4,27 @@
 */
 
 :root {
-    --bg-obsidian: #080809;
-    --bg-card: #121214;
-    --border-dim: #1C1C1E;
-    --accent-blue: #3B82F6;
+    --bg-obsidian: #050508;
+    --bg-card: rgba(18, 18, 28, 0.65);
+    --border-dim: rgba(255, 255, 255, 0.08);
+    --accent-blue: #00F0FF; /* Neon Cyan */
+    --accent-pink: #FF007F; /* Neon Pink */
+    --accent-purple: #8B5CF6; /* Neon Purple */
     --text-pure: #FFFFFF;
-    --text-dim: #A1A1AA;
-    --text-muted: #52525B;
+    --text-dim: #E5E7EB;
+    --text-muted: #9CA3AF;
 }
 
 /* Global Foundations */
 body {
-    background-color: var(--bg-obsidian) !important;
+    background-color: #050508 !important;
+    background-image: url('../images/dashboard-bg.png') !important;
+    background-size: 95% auto !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
     color: var(--text-pure) !important;
-    font-family: 'Inter', -apple-system, sans-serif !important;
+    font-family: 'Poppins', -apple-system, sans-serif !important;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -37,27 +44,36 @@ body {
 
 /* Container Precision */
 .app-dashboard-active .container {
-    max-width: 600px !important;
-    /* Mobile-first focused width */
+    max-width: 1200px !important;
     margin: 0 auto;
 }
 
-/* Card Refinement - The "Designer" Look */
+/* Card Refinement - Glassmorphism */
 .app-dashboard-active .card {
-    background: var(--bg-card) !important;
-    border: 1px solid var(--border-dim) !important;
-    border-radius: 16px !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
-    margin-bottom: 16px !important;
+    background: rgba(20, 20, 24, 0.4);
+    border: 1px solid var(--border-dim);
+    border-radius: 24px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.app-dashboard-active .card:hover {
+    border-color: rgba(0, 240, 255, 0.25) !important;
+    box-shadow: 0 12px 40px 0 rgba(0, 240, 255, 0.08) !important;
+    transform: translateY(-2px);
 }
 
 .app-dashboard-active .card-header {
-    padding: 18px 20px !important;
+    padding: 20px 24px !important;
     border-bottom: 1px solid var(--border-dim) !important;
+    background: transparent !important;
 }
 
 .app-dashboard-active .card-title {
-    font-size: 15px !important;
+    font-size: 16px !important;
     font-weight: 600 !important;
     color: var(--text-pure) !important;
     letter-spacing: -0.2px;
@@ -65,26 +81,31 @@ body {
 
 /* Statistics Header Items */
 .app-dashboard-active .statistics .item .card {
-    padding: 16px !important;
+    padding: 18px !important;
+    background: rgba(18, 18, 28, 0.4) !important;
 }
 
 .app-dashboard-active .stamp {
-    background: rgba(59, 130, 246, 0.1) !important;
-    color: var(--accent-blue) !important;
-    border-radius: 10px !important;
-    width: 38px !important;
-    height: 38px !important;
-    line-height: 38px !important;
+    background: linear-gradient(135deg, rgba(0, 240, 255, 0.15) 0%, rgba(255, 0, 127, 0.15) 100%) !important;
+    color: var(--text-pure) !important;
+    border-radius: 12px !important;
+    width: 42px !important;
+    height: 42px !important;
+    line-height: 42px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .app-dashboard-active .statistics .number {
-    font-size: 18px !important;
+    font-size: 20px !important;
     font-weight: 700 !important;
+    background: linear-gradient(90deg, #FFFFFF, #E5E7EB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .app-dashboard-active .statistics .text-muted {
     font-size: 12px !important;
-    color: var(--text-dim) !important;
+    color: var(--text-muted) !important;
 }
 
 /* Modern Header (Greeting & Balance) */
@@ -92,48 +113,100 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 24px;
-    padding: 10px 4px;
+    margin-bottom: 28px;
+    padding: 14px 24px;
+    background: rgba(10, 10, 14, 0.4);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 .app-user-header .greeting h2 {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 26px !important;
+    font-weight: 800 !important;
     margin: 0;
+    background: linear-gradient(90deg, #00F0FF 0%, #ff007f 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+    letter-spacing: -0.5px;
 }
 
 .app-user-header .greeting p {
-    font-size: 13px;
-    color: var(--text-dim);
-    margin: 0;
+    display: none !important;
 }
 
 .app-user-header .balance-badge {
-    background: #FFFFFF;
-    color: #000000;
-    padding: 8px 14px;
-    border-radius: 40px;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: transform 0.2s ease;
+    background: rgba(10, 10, 14, 0.7) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border: 1.5px solid rgba(0, 240, 255, 0.35) !important;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.15), inset 0 0 10px rgba(0, 240, 255, 0.05) !important;
+    border-radius: 30px !important;
+    padding: 6px 18px 6px 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.app-user-header .balance-badge:hover {
+    transform: scale(1.04) translateY(-1px) !important;
+    border-color: rgba(0, 240, 255, 0.6) !important;
+    box-shadow: 0 0 25px rgba(0, 240, 255, 0.4), inset 0 0 12px rgba(0, 240, 255, 0.1) !important;
 }
 
 .app-user-header .balance-badge:active {
-    transform: scale(0.95);
+    transform: scale(0.96) !important;
 }
 
-/* Bottom Navigation - Minimalist */
+.app-user-header .balance-badge .balance-icon-wrap {
+    background: rgba(0, 240, 255, 0.1) !important;
+    border: 1px solid rgba(0, 240, 255, 0.4) !important;
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-right: 10px !important;
+    box-shadow: 0 0 8px rgba(0, 240, 255, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+.app-user-header .balance-badge:hover .balance-icon-wrap {
+    background: rgba(0, 240, 255, 0.2) !important;
+    border-color: rgba(0, 240, 255, 0.6) !important;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.4) !important;
+}
+
+.app-user-header .balance-badge span {
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    letter-spacing: 0.5px !important;
+}
+
+.app-user-header .balance-badge i {
+    color: #00F0FF !important;
+    font-size: 14px !important;
+    text-shadow: 0 0 6px #00F0FF !important;
+}
+
+/* Bottom Navigation - Minimalist Glass */
 .app-bottom-nav {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: var(--bg-card);
+    background: rgba(18, 18, 28, 0.75) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     border-top: 1px solid var(--border-dim);
     display: flex;
     justify-content: space-around;
-    padding: 10px 10px 32px 10px;
+    padding: 12px 10px 32px 10px;
     z-index: 9999;
 }
 
@@ -143,7 +216,7 @@ body {
     align-items: center;
     color: var(--text-muted);
     text-decoration: none !important;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
 }
 
 .app-nav-item svg {
@@ -160,6 +233,7 @@ body {
 
 .app-nav-item.active {
     color: var(--accent-blue);
+    filter: drop-shadow(0 0 5px rgba(0, 240, 255, 0.5));
 }
 
 /* Charts Customization */
@@ -226,28 +300,29 @@ body {
 .app-dashboard-active .form-control,
 .app-dashboard-active .custom-select,
 .app-dashboard-active .selectize-input {
-    background-color: #1A1A1C !important;
+    background-color: rgba(26, 26, 28, 0.5) !important;
     border: 1px solid var(--border-dim) !important;
     color: var(--text-pure) !important;
-    border-radius: 12px !important;
-    padding: 12px 16px !important;
+    border-radius: 14px !important;
+    padding: 14px 18px !important;
     height: auto !important;
     font-size: 14px !important;
-    transition: all 0.2s ease !important;
-    box-shadow: none !important;
+    transition: all 0.3s ease !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 
 .app-dashboard-active .form-control:focus,
 .app-dashboard-active .custom-select:focus,
 .app-dashboard-active .selectize-input.focus {
     border-color: var(--accent-blue) !important;
-    background-color: #1E1E20 !important;
+    background-color: rgba(30, 30, 32, 0.8) !important;
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 
 .app-dashboard-active .form-control[disabled],
 .app-dashboard-active .form-control[readonly] {
-    background-color: #121214 !important;
-    opacity: 0.7;
+    background-color: rgba(18, 18, 20, 0.5) !important;
+    opacity: 0.5;
     cursor: not-allowed;
 }
 
@@ -258,40 +333,51 @@ body {
 }
 
 .app-dashboard-active .custom-switch-input:checked~.custom-switch-indicator {
-    background: var(--accent-blue) !important;
-    border-color: var(--accent-blue) !important;
+    background: var(--accent-pink) !important;
+    border-color: var(--accent-pink) !important;
+    box-shadow: 0 0 8px rgba(255, 0, 127, 0.5) !important;
 }
 
 /* Total Charge Display */
 .app-dashboard-active .total_charge {
-    background: rgba(59, 130, 246, 0.1) !important;
-    border: 1px solid rgba(59, 130, 246, 0.2) !important;
-    color: var(--accent-blue) !important;
+    background: rgba(255, 0, 127, 0.1) !important;
+    border: 1px solid rgba(255, 0, 127, 0.2) !important;
+    color: var(--accent-pink) !important;
     font-weight: 700 !important;
-    border-radius: 12px !important;
-    padding: 15px !important;
+    border-radius: 14px !important;
+    padding: 16px !important;
     width: 100% !important;
     text-align: center;
     font-size: 16px;
     margin-top: 20px !important;
+    box-shadow: 0 4px 15px rgba(255, 0, 127, 0.05);
 }
 
 .app-dashboard-active .total_charge .charge_number {
     color: var(--text-pure) !important;
     margin-left: 5px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 
-/* Place Order Button - Premium */
+/* Place Order Button - Premium Neon Gradient */
 .app-dashboard-active .btn-primary.btn-block {
-    background: #FFFFFF !important;
-    color: #000000 !important;
+    background: linear-gradient(135deg, var(--accent-blue) 0%, #0072FF 100%) !important;
+    color: #FFFFFF !important;
     border: none !important;
     border-radius: 14px !important;
     font-weight: 700 !important;
     padding: 16px !important;
     font-size: 15px !important;
     margin-top: 20px !important;
-    box-shadow: 0 10px 20px -5px rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 25px rgba(0, 240, 255, 0.3) !important;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.app-dashboard-active .btn-primary.btn-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(0, 240, 255, 0.5) !important;
 }
 
 .app-dashboard-active .btn-primary.btn-block:active {
@@ -300,7 +386,7 @@ body {
 
 /* Dark Mode Utilities */
 .app-dashboard-active .bg-dark-dim {
-    background-color: #1A1A1C !important;
+    background-color: rgba(26, 26, 28, 0.4) !important;
 }
 
 .app-dashboard-active .text-dim {
@@ -309,18 +395,20 @@ body {
 
 /* Nav Pills - Professional Style */
 .app-dashboard-active .nav-pills .nav-link {
-    color: var(--text-dim);
+    color: var(--text-muted);
     font-size: 14px;
     font-weight: 600;
-    padding: 10px 24px;
-    border-radius: 10px;
-    transition: all 0.2s ease;
+    padding: 12px 24px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
 }
 
 .app-dashboard-active .nav-pills .nav-link.active {
-    background: #FFFFFF !important;
-    color: #000000 !important;
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(255, 0, 127, 0.2) 0%, rgba(139, 92, 246, 0.2) 100%) !important;
+    color: var(--text-pure) !important;
+    border-color: rgba(255, 0, 127, 0.3) !important;
+    box-shadow: 0 4px 15px rgba(255, 0, 127, 0.15) !important;
 }
 
 /* Orders Activity Log */
@@ -446,13 +534,13 @@ body {
 
 /* Wallet & Recharge Center */
 .app-dashboard-active .recharge-balance-card {
-    background: linear-gradient(135deg, #2563EB 0%, #1E40AF 100%) !important;
+    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-purple) 100%) !important;
     border: none !important;
     border-radius: 20px !important;
     padding: 30px !important;
     text-align: center;
     margin-bottom: 30px !important;
-    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.3) !important;
+    box-shadow: 0 10px 25px -5px rgba(255, 0, 127, 0.3) !important;
 }
 
 .app-dashboard-active .recharge-balance-card h4 {
@@ -478,20 +566,21 @@ body {
 }
 
 .app-dashboard-active .payment-method-item {
-    background: #131315 !important;
+    background: rgba(18, 18, 28, 0.4) !important;
     border: 1px solid var(--border-dim) !important;
     border-radius: 16px !important;
     padding: 20px 15px !important;
     text-align: center;
     cursor: pointer;
-    transition: all 0.2s ease !important;
+    transition: all 0.3s ease !important;
 }
 
 .app-dashboard-active .payment-method-item:active,
 .app-dashboard-active .payment-method-item.active {
     border-color: var(--accent-blue) !important;
-    background: rgba(59, 130, 246, 0.05) !important;
+    background: rgba(0, 240, 255, 0.05) !important;
     transform: translateY(-2px);
+    box-shadow: 0 0 12px rgba(0, 240, 255, 0.15);
 }
 
 .app-dashboard-active .payment-method-item img {
@@ -509,18 +598,19 @@ body {
 
 /* Form refinement for add-funds */
 .app-dashboard-active .add-funds-form-content {
-    background: #131315 !important;
+    background: rgba(18, 18, 28, 0.4) !important;
     padding: 25px !important;
     border-radius: 20px !important;
     border: 1px solid var(--border-dim) !important;
 }
 
 .app-dashboard-active .add-funds-form-content ul {
-    background: #1A1A1C !important;
+    background: rgba(26, 26, 28, 0.5) !important;
     padding: 15px 15px 15px 35px !important;
     border-radius: 12px !important;
     font-size: 13px !important;
-    color: var(--text-dim) !important;
+    color: var(--text-muted) !important;
+    border: 1px solid var(--border-dim);
 }
 
 .app-dashboard-active .add-funds-form-content .btn-primary {
@@ -528,65 +618,70 @@ body {
     margin-top: 15px !important;
 }
 
-/* Support & Messaging */
+/* Support & Messaging Overhaul */
 .app-dashboard-active .ticket-lists .item {
-    background: #131315 !important;
+    background: rgba(26, 26, 28, 0.4) !important;
     border: 1px solid var(--border-dim) !important;
-    border-radius: 16px !important;
-    padding: 16px !important;
-    margin-bottom: 12px !important;
+    border-radius: 18px !important;
+    padding: 20px !important;
+    margin-bottom: 15px !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: all 0.2s ease !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
 }
 
-.app-dashboard-active .ticket-lists .item:active {
-    background: rgba(59, 130, 246, 0.05) !important;
+.app-dashboard-active .ticket-lists .item:hover {
+    border-color: rgba(255, 0, 127, 0.3) !important;
+    box-shadow: 0 8px 25px rgba(255, 0, 127, 0.08) !important;
+    transform: translateY(-2px);
 }
 
 .app-dashboard-active .ticket-lists .subject {
     font-size: 15px !important;
     font-weight: 600 !important;
     color: var(--text-pure) !important;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
 .app-dashboard-active .ticket-lists .time {
     font-size: 12px !important;
-    color: var(--text-dim) !important;
+    color: var(--text-muted) !important;
 }
 
-/* Chat Bubbles */
+/* Chat Bubbles Refinement */
 .app-dashboard-active .messages ul {
     list-style: none !important;
     padding: 0 !important;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
 }
 
 .app-dashboard-active .messages li {
-    max-width: 85% !important;
-    padding: 12px 16px !important;
-    border-radius: 16px !important;
+    max-width: 80% !important;
+    padding: 14px 18px !important;
+    border-radius: 18px !important;
     position: relative;
     font-size: 14px;
-    line-height: 1.5;
+    line-height: 1.6;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* User (Client) Messages - Right Aligned */
 .app-dashboard-active .messages li.sent {
     align-self: flex-end;
-    background: var(--accent-blue) !important;
+    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-purple) 100%) !important;
     color: #FFFFFF !important;
     border-bottom-right-radius: 4px !important;
+    box-shadow: 0 6px 20px rgba(255, 0, 127, 0.25) !important;
 }
 
 /* Support (Admin) Messages - Left Aligned */
 .app-dashboard-active .messages li.replies {
     align-self: flex-start;
-    background: #1A1A1C !important;
+    background: rgba(26, 26, 28, 0.6) !important;
     color: var(--text-pure) !important;
     border: 1px solid var(--border-dim) !important;
     border-bottom-left-radius: 4px !important;
@@ -595,8 +690,8 @@ body {
 .app-dashboard-active .messages .text-muted.small {
     display: block;
     font-size: 11px;
-    margin-top: 5px;
-    opacity: 0.7;
+    margin-top: 6px;
+    opacity: 0.8;
 }
 
 .app-dashboard-active .messages li.sent .text-muted {
@@ -606,19 +701,331 @@ body {
 /* Floating Add Button for Mobile Support */
 .app-dashboard-active .btn-add-ticket-floating {
     position: fixed;
-    bottom: 90px;
+    bottom: 95px;
     right: 20px;
-    width: 56px;
-    height: 56px;
+    width: 60px;
+    height: 60px;
     border-radius: 50% !important;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-purple) 100%) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    box-shadow: 0 6px 20px rgba(255, 0, 127, 0.4) !important;
     z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.app-dashboard-active .btn-add-ticket-floating:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 0, 127, 0.5) !important;
+}
+
+/* Unified Buttons Design - Dashboard Broad Scale */
+.app-dashboard-active .btn {
+    border-radius: 12px !important;
+    font-weight: 700 !important;
+    padding: 12px 24px !important;
+    font-size: 14px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    letter-spacing: 0.2px;
+}
+
+.app-dashboard-active .btn-primary {
+    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--accent-purple) 100%) !important;
+    border: none !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 15px rgba(255, 0, 127, 0.2) !important;
+}
+
+.app-dashboard-active .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 0, 127, 0.4) !important;
+}
+
+.app-dashboard-active .btn-dark, .app-dashboard-active .btn-pill {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--border-dim) !important;
+    color: #fff !important;
+}
+
+.app-dashboard-active .btn-dark:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.app-dashboard-active .btn-outline-danger {
+    border: 1px solid rgba(239, 68, 68, 0.3) !important;
+    background: rgba(239, 68, 68, 0.05) !important;
+    color: #EF4444 !important;
+}
+
+.app-dashboard-active .btn-outline-danger:hover {
+    background: #EF4444 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3) !important;
+}
+
+/* Ambient Backdrops inside Dashboard */
+.app-dashboard-active::before {
+    content: "";
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: var(--accent-pink);
+    filter: blur(140px);
+    opacity: 0.06;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.app-dashboard-active::after {
+    content: "";
+    position: fixed;
+    bottom: -10%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: var(--accent-blue);
+    filter: blur(140px);
+    opacity: 0.06;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* Scroll Smoothing */
 * {
     -webkit-overflow-scrolling: touch;
+}
+
+/* Platform Quick-Selector Wizard styling */
+.platform-select-btn {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid var(--border-dim) !important;
+    color: var(--text-muted) !important;
+    border-radius: 12px !important;
+    padding: 10px 18px !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease !important;
+}
+
+.platform-select-btn:hover {
+    border-color: rgba(0, 240, 255, 0.2) !important;
+    color: var(--text-pure) !important;
+    background: rgba(0, 240, 255, 0.02) !important;
+}
+
+.platform-select-btn.active {
+    background: rgba(255, 0, 127, 0.1) !important;
+    border-color: rgba(255, 0, 127, 0.8) !important;
+    color: #ff007f !important;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4), inset 0 0 10px rgba(255, 0, 127, 0.2) !important;
+}
+
+.platform-scroll-wrapper::-webkit-scrollbar {
+    height: 4px;
+}
+.platform-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: var(--border-dim);
+    border-radius: 2px;
+}
+
+/* Responsive Data Tables Collapse to Cards on Mobile */
+@media (max-width: 768px) {
+    .app-dashboard-active .container {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+    
+    .app-dashboard-active .table-responsive {
+        border: none !important;
+        background: transparent !important;
+    }
+    
+    .app-dashboard-active .table-responsive table {
+        display: block !important;
+        border: none !important;
+    }
+    .app-dashboard-active .table-responsive thead {
+        display: none !important;
+    }
+    .app-dashboard-active .table-responsive tbody {
+        display: block !important;
+        width: 100% !important;
+    }
+    .app-dashboard-active .table-responsive tr {
+        display: block !important;
+        background: rgba(26, 26, 28, 0.4) !important;
+        border: 1px solid var(--border-dim) !important;
+        border-radius: 16px !important;
+        margin-bottom: 16px !important;
+        padding: 14px !important;
+        position: relative;
+    }
+    .app-dashboard-active .table-responsive td {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 10px 8px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04) !important;
+        font-size: 13px !important;
+        text-align: right !important;
+        white-space: normal !important;
+        max-width: none !important;
+    }
+    .app-dashboard-active .table-responsive td:last-child {
+        border-bottom: none !important;
+    }
+    .app-dashboard-active .table-responsive td:before {
+        content: attr(data-label);
+        font-weight: 700;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        font-size: 10px;
+        letter-spacing: 0.5px;
+        text-align: left;
+        margin-right: auto;
+    }
+    
+    /* Ensure action buttons inside td wrap correctly */
+    .app-dashboard-active .table-responsive td .btn,
+    .app-dashboard-active .table-responsive td a,
+    .app-dashboard-active .table-responsive td div {
+        margin: 0 !important;
+        text-align: right;
+    }
+}
+
+/* UI CUSTOMIZATION - BACKGROUND TRANSPARENCY FIX */
+.app-dashboard-active,
+.app-dashboard-active .page,
+.app-dashboard-active .page-main,
+.app-dashboard-active .my-3,
+.app-dashboard-active .my-md-5 {
+    background-color: transparent !important;
+}
+
+/* UI CUSTOMIZATION - PLATFORM SELECTOR NEON OUTLINES */
+.app-dashboard-active .platform-select-btn {
+    border-radius: 20px !important;
+    padding: 8px 22px !important;
+    margin: 6px 4px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px !important;
+    height: auto !important;
+    line-height: 1 !important;
+    transition: all 0.3s ease !important;
+    gap: 8px !important;
+}
+
+.app-dashboard-active .platform-select-btn i,
+.app-dashboard-active .platform-select-btn svg {
+    font-size: 12px !important;
+    margin: 0 !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+
+.app-dashboard-active .platform-select-btn.active {
+    position: relative !important;
+    background: rgba(20, 20, 24, 0.9) !important;
+    color: #00F0FF !important;
+    border: 1.5px solid #00F0FF !important;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4), inset 0 0 10px rgba(0, 240, 255, 0.1) !important;
+}
+
+.app-dashboard-active .platform-select-btn.active::after {
+    content: '' !important;
+    position: absolute !important;
+    top: -4px !important;
+    left: -4px !important;
+    right: -4px !important;
+    bottom: -4px !important;
+    border: 1.5px solid #ff007f !important;
+    border-radius: 24px !important;
+    pointer-events: none !important;
+    opacity: 0.8 !important;
+    box-shadow: 0 0 15px rgba(255, 0, 127, 0.4) !important;
+}
+
+/* UI CUSTOMIZATION - INPUT FIELDS & SELECTORS */
+.app-dashboard-active .form-control,
+.app-dashboard-active .custom-select,
+.app-dashboard-active .selectize-input {
+    background-color: #0c0c0e !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.08) !important;
+    color: #fff !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    font-size: 13px !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+.app-dashboard-active .form-control:focus,
+.app-dashboard-active .custom-select:focus,
+.app-dashboard-active .selectize-input.focus {
+    border-color: var(--accent-pink) !important;
+    box-shadow: 0 0 12px rgba(255, 0, 127, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* UI CUSTOMIZATION - BOTTOM NAV ACTIVE STATE */
+.app-bottom-nav .app-nav-item.active {
+    color: #ff007f !important;
+    filter: drop-shadow(0 0 8px rgba(255, 0, 127, 0.6)) !important;
+}
+
+/* UI CUSTOMIZATION - FIXED CENTER FLOATING LOGO */
+.ha-floating-logo {
+    position: fixed !important;
+    bottom: 12px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 76px !important;
+    height: 76px !important;
+    background: rgba(10, 10, 12, 0.95) !important;
+    border: 2.5px solid #ff007f !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 0 25px rgba(255, 0, 127, 0.6), inset 0 0 15px rgba(255, 0, 127, 0.4) !important;
+    z-index: 10000 !important;
+    backdrop-filter: blur(10px) !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer;
+}
+
+.ha-floating-logo span {
+    color: white !important;
+    font-weight: 900 !important;
+    font-size: 26px !important;
+    font-style: italic !important;
+    font-family: 'Outfit', sans-serif !important;
+    text-shadow: 0 0 8px #ff007f !important;
+}
+
+.ha-floating-logo span span {
+    color: #ff007f !important;
+    text-shadow: none !important;
+}
+
+.ha-floating-logo:hover {
+    transform: translateX(-50%) scale(1.08) !important;
+    box-shadow: 0 0 35px rgba(255, 0, 127, 0.8), inset 0 0 20px rgba(255, 0, 127, 0.5) !important;
 }

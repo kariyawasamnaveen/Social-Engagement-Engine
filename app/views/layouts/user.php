@@ -1,16 +1,7 @@
 <?php
   if(session('uid')) {
-    $user_layout = get_option('user_layout', "horizontal");
-    switch ($user_layout) {
-      case 'vertical':
-        require_once 'user/vertical/main.blade.php';
-        break;
-
-      default:
-        require_once 'user/horizontal/main.blade.php';
-        break;
-    }
+    require_once __DIR__ . '/user/vertical/main.blade.php';
   }else{
-    require_once 'user/horizontal/main.blade.php';
+    require_once __DIR__ . '/user/vertical/main.blade.php';
   }
 ?>

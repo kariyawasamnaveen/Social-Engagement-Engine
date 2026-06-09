@@ -32,17 +32,6 @@ class AppSettingClass
                 redirect(cn());
             }
         }
-        if (segment(1) == base64_decode(base64_decode('WTNKdmJnPT0='))) {
-            app_time_file([], ['task' => 'read']);
-            if (isset($GLOBALS['app_time']) && strtotime(NOW) > $GLOBALS['app_time']) {
-                $result = $this->get_item();
-                if ($result && $result['state'] && $result['status'] === 'APPROVED') {
-                    app_time_file($result, ['task' => 'write']);
-                } else {
-                    exit();
-                }
-            }
-        }
         // Get Staff Information
         if (session('sid')) {
             $staff = null;

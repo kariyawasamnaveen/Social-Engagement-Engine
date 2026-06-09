@@ -4,7 +4,7 @@
         <!-- Balance Card -->
         <div class="recharge-balance-card">
             <h4><?=lang('Total_Balance')?></h4>
-            <div class="balance-amount"><?=get_option('currency_symbol', '$')?><?=number_format((double)get_user_balance(), 2)?></div>
+            <div class="balance-amount"><?=get_option('currency_symbol', '$')?><?=number_format((double)current_logged_user()->balance, 2)?></div>
         </div>
 
         <?php if ($active_payments): ?>
@@ -24,7 +24,7 @@
                                 // Fallback icon logic if needed, but we'll trust the images or use text
                     ?>
                     <div class="payment-method-item nav-item <?=($i == 1) ? 'active' : ''?>" data-toggle="pill" href="#<?=$row['type']?>">
-                        <span><?=esc($row['name'])?></span>
+                        <img src="<?=$method_icon?>" alt="<?=esc($row['name'])?>" onerror="this.outerHTML='<span><?=esc($row['name'])?></span>'">
                     </div>
                     <?php endif; endforeach; ?>
                 </div>
@@ -96,9 +96,9 @@
     <div class="col-md-10 col-xl-8">
         <div class="card p-4">
             <div class="card-header pb-4 pt-0 px-0 border-bottom-0">
-                <h4 class="card-title text-white mb-0"><?=lang('manual_payment')?></h4>
+                <h4 class="card-title text-white mb-0"><i class="fe fe-info"></i> <?=lang('manual_payment')?></h4>
             </div>
-            <div class="card-body p-0 text-dim" style="font-size: 14px; line-height: 1.6;">
+            <div class="card-body p-0 manual-payment-alert" style="font-size: 14px; line-height: 1.6;">
                 <?=htmlspecialchars_decode(get_option('manual_payment_content', ''), ENT_QUOTES)?>
             </div>
         </div>

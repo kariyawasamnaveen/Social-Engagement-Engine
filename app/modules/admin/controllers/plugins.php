@@ -25,28 +25,26 @@ class plugins extends My_AdminController
     public function index()
     {
         staff_check_role_permission($this->controller_name, 'index');
-        $item = $this->main_model->get_item(['id' => 1], ['task' => 'get-item-main']);
-        if (empty($item)) {
-            redirect(admin_url('settings/website_setting'));
-        }
-        $scripts = "";
-        if (!preg_match("/^([a-f0-9]{8})-(([a-f0-9]{4})-){3}([a-f0-9]{12})$/i", $item['purchase_code'])) {
-            redirect(admin_url('settings/website_setting'));
-        }
-        $result = get_json_content(base64_decode($this->publish_key) . '/script_list', ['purchase_code' => urlencode(trim($item['purchase_code']))]);
-        if (!empty($result)) {
-            if (!empty($result->scripts)) {
-                $scripts = $result->scripts;
+        
+        $items = $this->main_model->list_items(null, ['task' => 'list-items']);
+        $scripts = [];
+        if ($items) {
+            foreach ($items as $item_purchase) {
+                $scripts[] = (object)[
+                    'app_id' => $item_purchase->pid,
+                    'name' => 'Module ID: ' . $item_purchase->pid,
+                    'version' => $item_purchase->version,
+                    'price' => '0.00',
+                    'thumbnail' => BASE . 'assets/images/user-avatar.png',
+                    'link' => '#'
+                ];
             }
         }
-        if (empty($scripts)) {
-            redirect(admin_url('settings/website_setting'));
-        }
-        $items = $this->main_model->list_items(null, ['task' => 'list-items']);
+        
         $data = array(
             "controller_name" => $this->controller_name,
             "scripts" => $scripts,
-            "purchase_code_lists" => $items,
+            "purchase_code_lists" => $items ? $items : [],
         );
         $this->template->build($this->path_views . '/index', $data);
     }

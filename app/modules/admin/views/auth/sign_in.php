@@ -1,7 +1,7 @@
 
 <div class="row h-100 align-items-center auth-form">
   <div class="col-md-6 col-login mx-auto ">
-    <form class="card actionForm" action="<?=admin_url("login")?>" data-redirect="<?=admin_url('users')?>" method="POST">
+    <form class="card actionForm" action="<?=admin_url("ajax_sign_in")?>" data-redirect="<?=admin_url('users')?>" method="POST">
       <div class="card-body ">
         <div class="card-title text-center">
           <div class="site-logo mb-2">

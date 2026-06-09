@@ -77,8 +77,8 @@
 <aside class="navbar navbar-side navbar-fixed js-sidebar" id="aside">
   <div class="mobile-logo">
     <a href="<?php echo cn('statistics'); ?>" class="navbar-brand text-inherit">
-      <img src="<?=get_option('website_logo', BASE."assets/images/logo.png")?>" alt="Website Logo" class="hide-navbar-folded navbar-brand-logo">
-      <img src="<?=get_option('website_logo_mark', BASE."assets/images/logo-mark.png")?>" alt="Website Logo" class="hide-navbar-expanded navbar-brand-logo">
+      <img src="<?=BASE?>assets/images/logo.png" alt="Website Logo" class="hide-navbar-folded navbar-brand-logo" style="max-height: 70px;">
+      <img src="<?=BASE?>assets/images/logo.png" alt="Website Logo" class="hide-navbar-expanded navbar-brand-logo" style="max-height: 70px;">
     </a>
   </div>
   <div class="flex-fill scroll-bar">

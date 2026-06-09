@@ -49,7 +49,7 @@
     <link href="<?php echo BASE; ?>assets/css/util.css" rel="stylesheet">
     <link href="<?php echo BASE; ?>assets/css/footer.css" rel="stylesheet">
     <link href="<?php echo BASE; ?>assets/css/layout.css" rel="stylesheet">
-    <link href="<?php echo BASE; ?>themes/nico/assets/css/app-dashboard.css" rel="stylesheet">
+    <link href="<?php echo BASE; ?>themes/nico/assets/css/app-dashboard.css?v=<?=time()?>" rel="stylesheet">
 
     <script type="text/javascript">
       var token = '<?php echo $this->security->get_csrf_hash(); ?>',
@@ -88,11 +88,13 @@
             ?>
             <div class="app-user-header animate-item delay-1">
                 <div class="greeting">
-                    <p class="text-dim mb-0" style="font-size: 13px; font-weight: 500;">Welcome back,</p>
-                    <h2 class="text-white"><?= $first_name ?>!</h2>
+                    <h2><?= $first_name ?>!</h2>
                 </div>
                 <div class="balance-badge" onclick="window.location.href='<?=cn('add_funds')?>'">
-                    <?= $balance_display ?>
+                    <div class="balance-icon-wrap">
+                        <i class="fa fa-usd"></i>
+                    </div>
+                    <span><?= $balance_display ?></span>
                 </div>
             </div>
             <div class="d-md-none">
@@ -130,7 +132,7 @@
     
     <!-- Datetime picker -->
     <script src="<?php echo BASE; ?>assets/plugins/boostrap-datetimepicket/moment.min.js" type="text/javascript"></script>
-    <script src="<?php echo BASE; ?>assets/plugins/boostrap-datetimepicket/bootstrap-datetimepicker.min.js"></script>
+    <script src="<?php echo BASE; ?>assets/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 
     <script src="<?php echo BASE; ?>assets/js/core.js"></script>
     <!-- toast -->
@@ -166,29 +168,81 @@
       });
     </script>
     
-    <!-- PREMIUM BOTTOM NAVIGATION -->
-    <div class="app-bottom-nav">
-        <a href="<?=cn('statistics')?>" class="app-nav-item <?=(segment(1)=='statistics')?'active':''?>">
-            <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
-            <span>Home</span>
-        </a>
-        <a href="<?=cn('new_order')?>" class="app-nav-item <?=(segment(1)=='new_order')?'active':''?>">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
-            <span>New Order</span>
-        </a>
-        <a href="<?=cn('order')?>" class="app-nav-item <?=(segment(1)=='order' && segment(2)!='add')?'active':''?>">
-            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
-            <span>Orders</span>
-        </a>
-        <a href="<?=cn('tickets')?>" class="app-nav-item <?=(segment(1)=='tickets')?'active':''?>">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-            <span>Support</span>
-        </a>
-        <a href="<?=cn('profile')?>" class="app-nav-item <?=(segment(1)=='profile')?'active':''?>">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
-            <span>Account</span>
-        </a>
+    <!-- GLOBAL FLOATING HA LOGO -->
+    <div class="ha-floating-logo" onclick="window.location.href='<?=cn('new_order')?>'">
+        <span>H<span>/</span>A</span>
     </div>
 
+    <!-- PREMIUM BOTTOM NAVIGATION -->
+    <div class="app-bottom-nav d-flex align-items-center" style="justify-content: space-between; padding-left: 20px; padding-right: 20px;">
+        <!-- Left side items -->
+        <div class="d-flex align-items-center" style="gap: 40px; margin-right: auto; padding-left: 5%;">
+            <a href="<?=cn('statistics')?>" class="app-nav-item <?=(segment(1)=='statistics')?'active':''?>">
+                <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                <span>Home</span>
+            </a>
+            <a href="<?=cn('new_order')?>" class="app-nav-item <?=(segment(1)=='new_order')?'active':''?>">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                <span>New Order</span>
+            </a>
+        </div>
+        
+        <!-- Right side items -->
+        <div class="d-flex align-items-center" style="gap: 40px; margin-left: auto; padding-right: 5%;">
+            <a href="<?=cn('tickets')?>" class="app-nav-item <?=(segment(1)=='tickets')?'active':''?>">
+                <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+                <span>Support</span>
+            </a>
+            <a href="<?=cn('profile')?>" class="app-nav-item <?=(segment(1)=='profile')?'active':''?>">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                <span>Account</span>
+            </a>
+        </div>
+        
+        <!-- Star Icon on Far Right -->
+        <div class="d-flex align-items-center justify-content-center" style="color: rgba(255,255,255,0.3); margin-left: 20px; font-size: 18px; cursor: pointer;">
+            <i class="fa fa-star-o" style="color: rgba(255, 255, 255, 0.3); text-shadow: 0 0 8px rgba(255,255,255,0.2);"></i>
+        </div>
+    </div>
+
+    <style>
+      body, body.theme-dark-ocean, body.app-dashboard-active {
+        background-color: #050508 !important;
+        background-image: url('<?=BASE?>themes/nico/assets/images/dashboard-bg.png') !important;
+        background-size: 95% auto !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+        background-attachment: fixed !important;
+      }
+      
+      .ha-floating-logo {
+        z-index: 10005 !important;
+      }
+      
+      .custom-card-box {
+        overflow: visible !important;
+      }
+      
+      .selectize-input, .selectize-input.full {
+        background-color: rgba(26, 26, 28, 0.8) !important;
+        border: 1px solid rgba(255, 0, 127, 0.3) !important;
+        color: #fff !important;
+        border-radius: 12px !important;
+        padding: 14px 18px !important;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+      }
+      
+      .selectize-dropdown {
+        background-color: rgba(26, 26, 28, 0.95) !important;
+        border: 1px solid rgba(255, 0, 127, 0.3) !important;
+        border-radius: 12px !important;
+        color: #fff !important;
+      }
+      
+      .selectize-dropdown .active {
+        background-color: rgba(255, 0, 127, 0.2) !important;
+        color: #fff !important;
+      }
+    </style>
   </body>
 </html>

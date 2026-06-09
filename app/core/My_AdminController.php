@@ -22,7 +22,7 @@ class My_AdminController extends MX_Controller
         parent::__construct();
         $CI = &get_instance();
 
-        if (! is_admin_logged_in() && ! in_array($this->router->fetch_method(), ['login', 'logout'])) {
+        if (! is_admin_logged_in() && ! in_array($this->router->fetch_method(), ['login', 'logout', 'ajax_sign_in'])) {
             redirect(cn());
         }
         if (is_admin_logged_in() && segment(2) == "users") {

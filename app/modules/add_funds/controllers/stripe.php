@@ -78,6 +78,18 @@ class stripe extends MX_Controller {
             )
         );
 
+        $stripe_secret = '';
+        $payment = $this->model->get('params', $this->tb_payments, ['type' => $this->payment_type]);
+        if ($payment) {
+            $params = $payment->params;
+            $option = get_value($params, 'option');
+            $stripe_secret = get_value($option, 'secret_key');
+        }
+
+        if (empty($stripe_secret)) {
+            _validation('error', lang('this_payment_is_not_active_please_choose_another_payment_or_contact_us_for_more_detail'));
+        }
+
         //charge a credit or a debit card
         $result = $this->payment_lib->create_payment($data_charge);
         if (!empty($result) && $result->status == 'success') {

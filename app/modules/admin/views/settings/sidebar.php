@@ -25,6 +25,7 @@
       'name'     => 'Integrations', 'icon' => 'fe fe-disc', 'area_title' => true, 'route-name' => '#',
       'elements' => [
         'payments' => ['name' => 'Manual payments', 'icon' => 'fe fe-file-text',   'area_title' => false, 'route-name' => 'payment'],
+        'social_login' => ['name' => 'Social Login', 'icon' => 'fe fe-share-2',   'area_title' => false, 'route-name' => 'social_login'],
       ],
     ],
   ];

@@ -5,6 +5,15 @@
   .search-box .form-control {
     height: auto !important;
   }
+  
+  body.premium-saas-theme {
+      background-color: #05050A !important;
+      background-image: url("<?=BASE?>assets/images/cyberpunk_grid_bg.png") !important;
+      background-size: 100% auto !important;
+      background-position: center 5vh !important;
+      background-attachment: fixed !important;
+      background-repeat: no-repeat !important;
+  }
 </style>
 
 <?php

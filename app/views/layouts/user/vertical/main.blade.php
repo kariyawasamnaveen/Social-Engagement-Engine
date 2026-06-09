@@ -5,7 +5,7 @@
       include 'elements/head.blade.php';
     ?>
   </head>
-  <body class="antialiased vertical-menu">
+  <body class="antialiased vertical-menu app-dashboard-active premium-saas-theme">
 
     <!-- Start page_overplay -->
     <?php

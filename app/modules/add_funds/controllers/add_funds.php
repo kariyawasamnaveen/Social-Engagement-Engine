@@ -27,16 +27,10 @@ class add_funds extends My_UserController
         $items_payments = $this->model->fetch('type, name, id, params', $this->tb_payments, ['status' => 1], 'sort', 'ASC', '', '', true);
         $item_users = $this->model->get('settings', $this->tb_users, ['id' => session('uid')], '', '', true);
         $limit_payments = get_value($item_users['settings'], 'limit_payments');
+        $active_payments = [];
         
         if (!empty($items_payments) && is_array($items_payments)) {
-            if (empty($limit_payments)) {
-                $active_payments = $items_payments;
-            } else {
-                $active_payments = array_filter($items_payments, function($item) use ($limit_payments) {
-                    $type = $item['type'] ?? '';
-                    return !isset($limit_payments[$type]) || $limit_payments[$type] == 1;
-                });
-            }
+            $active_payments = $items_payments; // bypass user limit settings temporarily
         }
       
         $data = array(

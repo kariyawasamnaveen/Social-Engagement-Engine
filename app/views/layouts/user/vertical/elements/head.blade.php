@@ -31,6 +31,8 @@
 <link href="<?php echo BASE; ?>assets/admin/vendors/css/vendor.css" rel="stylesheet">
 <link href="<?php echo BASE; ?>assets/admin/dist/css/admin-core.css" rel="stylesheet" />
 <link href="<?php echo BASE; ?>assets/admin/dist/css/layout.css" rel="stylesheet">
+<link href="<?php echo BASE; ?>themes/nico/assets/css/premium-saas.css?v=<?=time()?>" rel="stylesheet">
+
 <script type="text/javascript">
     var token = '<?php echo strip_tags($this->security->get_csrf_hash()); ?>',
         PATH  = '<?php echo PATH; ?>',
