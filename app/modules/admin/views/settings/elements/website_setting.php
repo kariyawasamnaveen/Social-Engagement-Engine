@@ -25,21 +25,21 @@
           
           <div class="form-group">
             <label class="form-label"><?=lang("website_name")?></label>
-            <input class="form-control" name="website_name" value="<?=get_option('website_name', "SmartPanel")?>">
+            <input class="form-control" name="website_name" value="<?=get_option('website_name', "HelpA Global Service")?>">
           </div>  
 
           <div class="form-group">
             <label class="form-label"><?=lang("website_description")?></label>
-            <textarea rows="3" name="website_desc" class="form-control"><?=get_option('website_desc', "SmartPanel - #1 SMM Reseller Panel - Best SMM Panel for Resellers. Also well known for SmartPanel and Cheap SMM Panel for all kind of Social Media Marketing Services. SMM Panel for Facebook, Instagram, YouTube and more services!")?>
+            <textarea rows="3" name="website_desc" class="form-control"><?=get_option('website_desc', "HelpA Global Service - #1 SMM Reseller Panel - Best SMM Panel for Resellers. Also well known for TOP SMM Panel and Cheap SMM Panel for all kind of Social Media Marketing Services. SMM Panel for Facebook, Instagram, YouTube and more services!")?>
             </textarea>
           </div>
           <div class="form-group">
             <label class="form-label"><?=lang("website_keywords")?></label>
-            <input name="website_keywords" class="form-control square" type="text" data-role="tagsinput" value="<?=get_option('website_keywords', "smm panel, SmartPanel, smm reseller panel, smm provider panel, reseller panel, instagram panel, resellerpanel, social media reseller panel, smmpanel, panelsmm, smm, panel, socialmedia, instagram reseller panel")?>">
+            <input name="website_keywords" class="form-control square" type="text" data-role="tagsinput" value="<?=get_option('website_keywords', "smm panel, HelpA Global Service, smm reseller panel, smm provider panel, reseller panel, instagram panel, resellerpanel, social media reseller panel, smmpanel, panelsmm, smm, panel, socialmedia, instagram reseller panel")?>">
           </div>
           <div class="form-group">
             <label class="form-label"><?=lang("website_title")?></label>
-            <input class="form-control" name="website_title" value="<?=get_option('website_title', "SmartPanel - SMM Panel Reseller Tool")?>">
+            <input class="form-control" name="website_title" value="<?=get_option('website_title', "HelpA Global Service - SMM Panel Reseller Tool")?>">
           </div>
         </div>
       </div>

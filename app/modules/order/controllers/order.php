@@ -490,13 +490,13 @@ class order extends My_UserController
                 if (get_option("is_order_notice_email", '')) {
                     $user_email = $this->model->get("email", $this->tb_users, "id = '" . session('uid') . "'")->email;
                     $subject = getEmailTemplate("order_success")->subject;
-                    $subject = str_replace("{{website_name}}", get_option("website_name", "SmartPanel"), $subject);
+                    $subject = str_replace("{{website_name}}", get_option("website_name", "HelpA Global Service"), $subject);
                     $email_content = getEmailTemplate("order_success")->content;
                     $email_content = str_replace("{{user_email}}", $user_email, $email_content);
                     $email_content = str_replace("{{order_id}}", $order_id, $email_content);
                     $email_content = str_replace("{{currency_symbol}}", get_option("currency_symbol", ""), $email_content);
                     $email_content = str_replace("{{total_charge}}", $total_charge, $email_content);
-                    $email_content = str_replace("{{website_name}}", get_option("website_name", "SmartPanel"), $email_content);
+                    $email_content = str_replace("{{website_name}}", get_option("website_name", "HelpA Global Service"), $email_content);
 
                     $mail_params = [
                         'template' => [
@@ -519,11 +519,11 @@ class order extends My_UserController
                     $user_email = $this->model->get("email", $this->tb_users, "id = '" . session('uid') . "'")->email;
 
                     $subject = getEmailTemplate("new_manual_order")->subject;
-                    $subject = str_replace("{{website_name}}", get_option("website_name", "SmartPanel"), $subject);
+                    $subject = str_replace("{{website_name}}", get_option("website_name", "HelpA Global Service"), $subject);
                     $email_content = getEmailTemplate("new_manual_order")->content;
                     $email_content = str_replace("{{user_email}}", $user_email, $email_content);
                     $email_content = str_replace("{{order_id}}", $order_id, $email_content);
-                    $email_content = str_replace("{{website_name}}", get_option("website_name", "SmartPanel"), $email_content);
+                    $email_content = str_replace("{{website_name}}", get_option("website_name", "HelpA Global Service"), $email_content);
                     $mail_params = [
                         'template' => [
                             'subject' => $subject,

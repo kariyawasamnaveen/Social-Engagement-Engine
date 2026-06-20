@@ -100,7 +100,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label class="form-label"><?=lang("Email")?></label>
-                <input class="form-control" name="contact_email" value="<?=get_option('contact_email',"do-not-reply@smartpanel.com")?>">
+                <input class="form-control" name="contact_email" value="<?=get_option('contact_email',"do-not-reply@helpaglobal.com")?>">
               </div> 
             </div>
             <div class="col-md-6">
@@ -115,7 +115,7 @@
             <div class="col-md-12">
               <div class="form-group">
                 <label class="form-label">Content</label>
-                <input class="form-control" name="copy_right_content" value="<?=get_option('copy_right_content',"Copyright &copy; 2020 - SmartPanel")?>">
+                <input class="form-control" name="copy_right_content" value="<?=get_option('copy_right_content',"Copyright &copy; " . date('Y') . " - HelpA Global Service")?>">
               </div>
             </div>
           </div>

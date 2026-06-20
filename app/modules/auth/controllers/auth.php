@@ -453,12 +453,12 @@ class auth extends My_UserController
                     /*----------  Send email notificaltion for Admin  ----------*/
                     if (get_option("is_new_user_email", '')) {
                         $subject = get_option('email_new_registration_subject', '');
-                        $subject = str_replace("{{website_name}}", get_option("website_name", "SmartPanel"), $subject);
+                        $subject = str_replace("{{website_name}}", get_option("website_name", "HelpA Global Service"), $subject);
 
                         $email_content = get_option('email_new_registration_content', '');
                         $email_content = str_replace("{{user_firstname}}", $first_name, $email_content);
                         $email_content = str_replace("{{user_lastname}}", $last_name, $email_content);
-                        $email_content = str_replace("{{website_name}}", get_option("website_name", "SmartPanel"), $email_content);
+                        $email_content = str_replace("{{website_name}}", get_option("website_name", "HelpA Global Service"), $email_content);
                         $email_content = str_replace("{{user_timezone}}", $timezone, $email_content);
                         $email_content = str_replace("{{user_email}}", $email, $email_content);
 
@@ -512,12 +512,12 @@ class auth extends My_UserController
             if (get_option("is_new_user_email", '')) {
 
                 $subject = get_option('email_new_registration_subject', '');
-                $subject = str_replace("{{website_name}}", get_option("website_name", "SmartPanel"), $subject);
+                $subject = str_replace("{{website_name}}", get_option("website_name", "HelpA Global Service"), $subject);
 
                 $email_content = get_option('email_new_registration_content', '');
                 $email_content = str_replace("{{user_firstname}}", $user->first_name, $email_content);
                 $email_content = str_replace("{{user_lastname}}", $user->last_name, $email_content);
-                $email_content = str_replace("{{website_name}}", get_option("website_name", "SmartPanel"), $email_content);
+                $email_content = str_replace("{{website_name}}", get_option("website_name", "HelpA Global Service"), $email_content);
                 $email_content = str_replace("{{user_timezone}}", $user->timezone, $email_content);
                 $email_content = str_replace("{{user_email}}", $user->email, $email_content);
 

@@ -62,7 +62,7 @@
         <h4 class="title"><?=lang("contact_informations")?></h4>
         <ul class="list-unstyled">
           <li><?=lang("Tel")?>: <?=get_option('contact_tel',"+12345678")?> </li>
-          <li><?=lang("Email")?>: <?=get_option('contact_email',"do-not-reply@smartpanel.com")?> </li>
+          <li><?=lang("Email")?>: <?=get_option('contact_email',"do-not-reply@helpaglobal.com")?> </li>
           <li><?=lang("working_hour")?>: <?=get_option('contact_work_hour',"Mon - Sat 09 am - 10 pm")?> </li>
         </ul>
       </div>
@@ -115,7 +115,7 @@
         </div>
       </div>
       <div class="col-12 col-lg-auto mt-3 mt-lg-0 text-center">
-        <?=get_option('copy_right_content',"Copyright &copy; 2022 - SmartPanel")?>
+        <?=get_option('copy_right_content',"Copyright &copy; " . date('Y') . " - HelpA Global Service")?>
       </div>
     </div>
   </div>
